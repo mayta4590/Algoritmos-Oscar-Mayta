@@ -8,52 +8,45 @@ Desarrollar las siguientes funciones y llamarlas desde el bloque principal:
 5) Mostrar todos los sueldos que están por debajo del promedio.
 """
 
-def cargar_sueldos():
-    lista = []
+def cargarDatos():
     for x in range(10):
-        valor = int(input("Ingrese sueldo: "))
-        lista.append(valor)
-    return lista
+        valor=int(input(f"Ingrese el sueldo de la persona n°{x+1}: "))
+        sueldos.append(valor)
+    
+    print("lista completa: ", sueldos)
+    
+    for x in range(10):
+        print(sueldos[x])
+
+def sueldo4000():
+    cont4000=0
+    for x in range(10):
+        if sueldos[x]>4000:
+            cont4000=cont4000+1
+    
+    print("Cantidad de sueldo mayor a 4000 son: ", cont4000)
+
+def promedio_debajoprom():
+    promedio=0
+    prom=0
+    for x in range(10):
+        promedio=promedio + sueldos[x]
+        prom=promedio/10
+
+    print("El promedo de todos los sueldos es: ", prom)
+
+    for x in range(10):
+        if sueldos[x]<prom:
+            lista2.append(sueldos[x])
+            print("Los sueldos debajo del promedio son: ", lista2[x])
 
 
-def imprimir_sueldos(lista):
-    print("Lista completa de sueldos")
-    for x in range(len(lista)):
-        print(lista[x])
 
+        
+    
+lista2=[]
+sueldos=[]
 
-def sueldo4000(lista):
-    cont4000 = 0
-    for x in range(len(lista)):
-        if lista[x] > 4000:
-            cont4000 = cont4000 + 1
-
-    print("Cantidad de sueldos mayores a 4000:", cont4000)
-
-
-def retornar_promedio(lista):
-    suma = 0
-    for x in range(len(lista)):
-        suma = suma + lista[x]
-
-    promedio = suma / len(lista)
-    return promedio
-
-
-def debajo_promedio(lista, promedio):
-    print("Sueldos por debajo del promedio")
-    for x in range(len(lista)):
-        if lista[x] < promedio:
-            print(lista[x])
-
-
-sueldos = cargar_sueldos()
-
-imprimir_sueldos(sueldos)
-
-sueldo4000(sueldos)
-
-promedio = retornar_promedio(sueldos)
-print("Promedio de los sueldos:", promedio)
-
-debajo_promedio(sueldos, promedio)
+cargarDatos()
+sueldo4000()
+promedio_debajoprom()
