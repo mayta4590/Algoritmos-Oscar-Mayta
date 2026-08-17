@@ -1,0 +1,52 @@
+"""
+Ejercicio 2: Detector de Transacciones Sospechosas (Parseo)
+Contexto: Un banco recibe un lote diario de movimientos en un único texto largo con el
+formato &quot;ID:TIPO:MONTO&quot;, donde TIPO puede ser I (Ingreso) o E (Egreso), separados por
+comas.
+Consigna: Crear una función procesar_transacciones(cadena_texto) que reciba el texto de
+movimientos y realice el procesamiento completo.
+Requisitos:
+● Parsear la cadena de texto separando cada registro.
+● Calcular y retornar el balance total de la cuenta (Ingresos suman, Egresos restan).
+● Generar y retornar una lista con los IDs de las transacciones consideradas
+&quot;sospechosas&quot;. Una transacción es sospechosa si es un Egreso superior a
+$50.000.
+Ejemplo de Entrada: &quot;TX101:I:120000, TX102:E:15000, TX103:E:85000,
+TX104:I:3000&quot; Salida Esperada:
+● Balance final: $23.000
+● Transacciones sospechosas: [&#39;TX103&#39;]
+"""
+
+def revisar_sospechosa(tipo, monto, id_mov, lista2):
+
+    if tipo == "E" and monto > 50000:
+        lista2.append(id_mov)
+
+
+def procesar_transacciones():
+    suma = 0
+    lista1 = []
+    lista2 = []
+
+    num = int(input("¿Cuántas veces desea ingresar datos? "))
+
+    for i in range(num):
+        id_mov = input("Ingrese el ID del movimiento: ")
+        tipo = input("Ingrese el tipo (I/E): ").upper()
+        monto = int(input("Ingrese el monto: "))
+
+        lista1.append(f"{id_mov}:{tipo}:{monto}")
+
+        if tipo == "I":
+            suma += monto
+        elif tipo == "E":
+            suma -= monto
+
+        revisar_sospechosa(tipo, monto, id_mov, lista2)
+
+    print(lista1)
+    print("Balance final: $", suma)
+    print("Transacciones sospechosas:", lista2)
+
+
+procesar_transacciones()
