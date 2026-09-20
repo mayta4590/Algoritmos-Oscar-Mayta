@@ -1,0 +1,105 @@
+:root {
+  --accent: #6c5ce7;
+  --accent-dark: #4834b0;
+  --bg: #f4f4f4;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg);
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 4px;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 8px;
+}
+
+#productos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  max-width: 900px;
+  margin-top: 24px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.card h3 {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  color: var(--accent-dark);
+}
+
+.card p {
+  margin: 8px 0 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.card button {
+  padding: 8px 14px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.card button:hover {
+  background-color: var(--accent-dark);
+}
+
+#productos-container > p {
+  grid-column: 1 / -1;
+  color: #c0392b;
+  font-weight: bold;
+}
+
+#cart-counter {
+  font-weight: bold;
+  color: var(--accent-dark);
+}
+
+#vaciar-carrito {
+  display: block;
+  margin: 0 auto 30px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: #c0392b;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#vaciar-carrito:hover {
+  background-color: #96281b;
+}
